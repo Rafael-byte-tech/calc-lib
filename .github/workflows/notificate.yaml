@@ -1,3 +1,4 @@
+# author´s note: não mexa em nada fazendo o favor.
 name: Notify
 on:
   pull_request:
@@ -21,5 +22,5 @@ jobs:
           TARGET_BRANCH: ${{ secrets.TARGET_BRANCH }}
         run: |
           curl -X POST -H "Content-Type: application/json" \
-          -d '{"content": "Build feita com sucesso! ✅ \nStatus: `${{ job.status }}` \nAutor: @${{ github.actor }}"}' \
+          -d '{"content": "万歳！！！絶対大成功でありました！！！Build feita com sucesso! ✅ \nStatus: `${{ job.status }}` \nAutor: @${{ github.actor }}"}' \
           $DISCORD_WEBHOOK_URL
