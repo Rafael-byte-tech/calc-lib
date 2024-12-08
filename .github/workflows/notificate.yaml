@@ -1,0 +1,25 @@
+name: Notify
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - next
+jobs:
+  lint:
+    name: Quality Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm install
+      - name: Build project
+        run: npm run build
+      - name: Notify Discord
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          TARGET_BRANCH: ${{ secrets.TARGET_BRANCH }}
+        run: |
+          curl -X POST -H "Content-Type: application/json" \
+          -d '{"content": "Build feita com sucesso! ✅ \nStatus: `${{ job.status }}` \nAutor: @${{ github.actor }}"}' \
+          $DISCORD_WEBHOOK_URL
