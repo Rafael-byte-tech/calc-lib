@@ -1,0 +1,20 @@
+{
+  "name": "@rafael-ms-org/calc-lib",
+  "version": "0.0.0-development",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "semantic-release": "semantic-release"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "semantic-release": "^24.2.0",
+    "typescript": "^5.7.2"
+  },
+  "files": ["dist", "README.md"],
+  "publishConfig": {
+    "access": "public"
+  }
+}
